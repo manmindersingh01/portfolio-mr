@@ -1,0 +1,16 @@
+.education-section { padding:6rem 0; }
+.edu-grid { display:grid; grid-template-columns:1fr; gap:1.25rem; }
+.edu-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:2.25rem 2.5rem; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center;
+  transition:transform .5s var(--ease-out-quint),box-shadow .5s,background .3s;
+}
+.edu-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-diffuse); background:var(--bg-card-hover); }
+.edu-card-institution { font-size:1.125rem; font-weight:500; letter-spacing:-.01em; margin-bottom:.25rem; }
+.edu-card-degree { font-size:.9375rem; color:var(--text-secondary); margin-bottom:.25rem; }
+.edu-card-location { font-size:.8125rem; color:var(--text-tertiary); }
+.edu-card-right { text-align:right; }
+.edu-card-score { font-size:1.75rem; font-weight:600; letter-spacing:-.03em; color:var(--accent); }
+.edu-card-period { font-family:var(--font-mono); font-size:.75rem; color:var(--text-tertiary); letter-spacing:.04em; margin-top:.25rem; }
+
+@media(max-width:768px) { .edu-card{grid-template-columns:1fr;gap:1rem} .edu-card-right{text-align:left} .education-section{padding:4rem 0} }

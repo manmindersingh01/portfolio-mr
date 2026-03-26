@@ -1,0 +1,15 @@
+.marquee-section {
+  padding:2.5rem 0; border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border); overflow:hidden; background:var(--bg);
+}
+.marquee-track { display:flex; gap:3rem; animation:mq 35s linear infinite; width:max-content; }
+.marquee-item {
+  font-size:clamp(.875rem,1.5vw,1.125rem); font-weight:400;
+  color:var(--text-tertiary); white-space:nowrap;
+  display:flex; align-items:center; gap:3rem;
+}
+.marquee-item::after {
+  content:''; width:5px; height:5px; border-radius:50%;
+  background:var(--accent); opacity:.4; flex-shrink:0;
+}
+@keyframes mq { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }

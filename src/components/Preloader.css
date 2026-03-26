@@ -1,0 +1,22 @@
+.preloader {
+  position:fixed; inset:0; z-index:9999; background:#09090B;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem;
+  transition:opacity .6s var(--ease-out-quint),visibility .6s;
+}
+.preloader.done { opacity:0; visibility:hidden; }
+.preloader-text {
+  font-family:var(--font-serif); font-size:clamp(2rem,5vw,4rem);
+  color:var(--text-primary); font-style:italic;
+  opacity:0; animation:pf 1.4s var(--ease-out-quint) forwards;
+}
+.preloader-sub {
+  font-family:var(--font-mono); font-size:.75rem;
+  color:var(--text-tertiary); letter-spacing:.15em; text-transform:uppercase;
+  opacity:0; animation:pf 1.4s .2s var(--ease-out-quint) forwards;
+}
+@keyframes pf {
+  0%{opacity:0;transform:translateY(20px)}
+  35%{opacity:1;transform:translateY(0)}
+  75%{opacity:1;transform:translateY(0)}
+  100%{opacity:0;transform:translateY(-10px)}
+}
