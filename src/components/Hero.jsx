@@ -1,33 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useMagneticHover from '../hooks/useMagneticHover';
 import './Hero.css';
 
 export default function Hero() {
   const sectionRef = useRef(null);
-  const videoRef = useRef(null);
   const revealRef = useScrollReveal();
   const magnetic = useMagneticHover();
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const section = sectionRef.current;
-    if (!video || !section) return;
-
-    const onScroll = () => {
-      if (!video.duration) return;
-      const rect = section.getBoundingClientRect();
-      const sh = section.offsetHeight - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, -rect.top / sh));
-      const targetTime = progress * video.duration;
-      if (Math.abs(video.currentTime - targetTime) > 0.03) {
-        video.currentTime = targetTime;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollTo = (e, id) => {
     e.preventDefault();
@@ -37,7 +16,7 @@ export default function Hero() {
   return (
     <section className="hero" id="heroSection" ref={sectionRef}>
       <div className="hero-sticky" ref={revealRef}>
-        <video className="hero-video" ref={videoRef} muted playsInline preload="auto">
+        <video className="hero-video" autoPlay muted loop playsInline preload="auto">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay" />
