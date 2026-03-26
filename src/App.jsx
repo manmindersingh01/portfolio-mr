@@ -1,5 +1,5 @@
 import Preloader from './components/Preloader';
-import CursorGlow from './components/CursorGlow';
+import StarField from './components/StarField';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <Preloader />
-      <CursorGlow />
+      <StarField />
       <Navbar />
       <Hero />
       <Marquee />
